@@ -1,37 +1,134 @@
-% TODO copy paste all of below to the new ___.tex file based off the conference template %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pdfoutput=1
+\documentclass{article}
 
-\newcommand{\papertitle}{Good fucking title}
-\newcommand{\pa}{Proposed Approach Name} 
+%NOTE this is based off neurips_2025.sty for now, subject to change in future
 
-\title{\papertitle}
-
-
-% end above %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% if you need to pass options to natbib, use, e.g.:
+    \PassOptionsToPackage{numbers, sort, compress}{natbib}
+% before loading neurips_2025
 
 
+% ready for submission
+\usepackage[preprint]{neurips_2025}
+% \usepackage{neurips_2025}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+    % \usepackage[preprint]{neurips_2025} TODO use this for preprint
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2025} TODO use this for camera ready
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2025}
+
+%%%%%%%%%%%%%%%%%%%%%% NeurIPS Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+% \usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+%%%%%%%%%%%%%%%%%%%%%% Project Imports %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\definecolor{linkblue}{HTML}{6870ae}
+\usepackage[pagebackref=true,colorlinks,citecolor=brown]{hyperref}
+\hypersetup{
+  urlcolor  = linkblue
+}
+% \usepackage{hyperref}
+\usepackage{multirow} 
+\usepackage{makecell} 
+\usepackage{wrapfig}
+\usepackage{svg}
+% \usepackage[inkscape=false]{svg} % TODO uncomment when submitting to arxiv, is for when submitting to arxiv and have svgs compiled into pdf.tex already in the project under their own folder
+\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{fontawesome5}
+
+
+% \usepackage{floatrow} % NOTE this was causing issues with -vspace
+\usepackage{graphicx}
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+\usepackage[export]{adjustbox}
+
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{etoolbox}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\textcolor{green}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Title, Commands, and Authorship %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Best Title to Ever Exist}
+
+\newcommand{\pa}{PA} % Proposed Approach
+% \newcommand{\parch}{EBT} % Proposed Architecture, etc
+
+\author{%
+      \textbf{Your Name}\textsuperscript{1}, \\
+      \textsuperscript{1}Affiliation \quad
+}
+
+
+%%%%%%%%%%%%%%%%%%%%% Core Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-% TODO copy paste all of below to the new ___.tex file based off the conference template  within the begin doc %%%%%%%%%%%%%%%%%%%%%%%%
-
 \maketitle
-\input{sec/0_abstract}    
-\input{sec/1_intro}
-\input{sec/2_motivation}
-\input{sec/3_related_work}
-\input{sec/4_approach}
-\input{sec/5_experimentation}
-\input{sec/6_broader_impact_future_work}
-\input{sec/7_discussion}
-\input{sec/8_conclusion_limitations}
 
-\bibliography{references}
-% feel free to copy paste your own references.bib in
+\input{main_sec/0_abstract}   
+\input{main_sec/1_intro}
+\input{main_sec/2_intuition}
+\input{main_sec/3_related_work}
+\input{main_sec/4_approach}
+\input{main_sec/5_experimentation}
+\input{main_sec/6_broader_impact_future_work}
+\input{main_sec/7_discussion}
+\input{main_sec/8_conclusion_limitations}
+\input{main_sec/9_acknowledgements}
 
-\input{sec/X_suppl}
+{
+    \small
+    % \bibliographystyle{ieeenat_fullname}
+    \bibliographystyle{unsrtnat}
+    \bibliography{references}
+}
 
-% end above %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\renewcommand{\thesection}{\Alph{section}}          % A, B, C, …
+\renewcommand{\thefigure}{\Alph{section}\arabic{figure}} % A1, A2, …
+\renewcommand{\thetable}{\Alph{section}\arabic{table}}   % A1, A2, …
+
+% reset & link counters ------------------------------------
+\setcounter{section}{0}
+\counterwithin{figure}{section}   % restart figs in every appendix
+\counterwithin{table}{section}
+
+
+\clearpage
+% \input{supp_sec/_Appendix_Description}
+% \input{supp_sec/A_broader_impact_future_work}
+% \input{supp_sec/B_additional_experiments}
+% \input{supp_sec/C_Approach_Details}
+% \input{supp_sec/D_Experimental_Details}
 
 
 \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
